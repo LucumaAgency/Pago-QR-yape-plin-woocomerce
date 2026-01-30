@@ -12,18 +12,22 @@
 }
 
 .qr-image-wrapper {
-    display: inline-block;
-    padding: 15px;
+    display: block;
+    padding: 20px;
     background: #ffffff;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
+    margin: 0 auto 15px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .qr-payment-image {
-    max-width: 200px;
+    max-width: 100%;
+    width: 100%;
     height: auto;
     display: block;
+    object-fit: contain;
 }
 
 .qr-instruction {
@@ -58,6 +62,7 @@
 .qr-thankyou-container .qr-image-wrapper {
     background: #ffffff;
     padding: 20px;
+    width: 100%;
 }
 
 .qr-thankyou-container p {
