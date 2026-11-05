@@ -16,6 +16,7 @@
     display: block;
     width: 100%;
     max-width: 360px;
+    height: auto !important;
     margin: 0 auto 15px;
     padding: 0;
     background: #ffffff;
