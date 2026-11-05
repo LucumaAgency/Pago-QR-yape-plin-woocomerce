@@ -3,7 +3,7 @@
  * Plugin Name: Pago QR Yape Plin
  * Plugin URI: https://example.com/pago-qr-yape-plin
  * Description: Método de pago mediante código QR para Yape y Plin. El cliente escanea el QR para realizar el pago.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Tu Nombre
  * Author URI: https://example.com
  * Text Domain: pago-qr-yape-plin
@@ -17,6 +17,8 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+
+define('PAGO_QR_YAPE_PLIN_VERSION', '1.1.0');
 
 // Verificar que WooCommerce esté activo
 add_action('plugins_loaded', 'pago_qr_yape_plin_init', 11);

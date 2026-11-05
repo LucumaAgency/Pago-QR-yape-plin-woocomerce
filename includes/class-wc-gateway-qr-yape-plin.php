@@ -30,6 +30,7 @@ class WC_Gateway_QR_Yape_Plin extends WC_Payment_Gateway {
         $this->description  = $this->get_option('description');
         $this->instructions = $this->get_option('instructions');
         $this->qr_image     = $this->get_option('qr_image');
+        $this->qr_note      = $this->get_option('qr_note');
         $this->order_status = $this->get_option('order_status', 'on-hold');
 
         // Acciones
@@ -72,6 +73,13 @@ class WC_Gateway_QR_Yape_Plin extends WC_Payment_Gateway {
                 'type'        => 'qr_image_upload',
                 'description' => __('Sube la imagen de tu código QR de Yape o Plin.', 'pago-qr-yape-plin'),
                 'default'     => '',
+                'desc_tip'    => true,
+            ),
+            'qr_note' => array(
+                'title'       => __('Texto bajo el QR', 'pago-qr-yape-plin'),
+                'type'        => 'textarea',
+                'description' => __('Texto que aparece debajo del código QR en el checkout.', 'pago-qr-yape-plin'),
+                'default'     => __('Escanea este código QR con tu app de Yape o Plin para realizar el pago.', 'pago-qr-yape-plin'),
                 'desc_tip'    => true,
             ),
             'instructions' => array(
@@ -216,7 +224,7 @@ class WC_Gateway_QR_Yape_Plin extends WC_Payment_Gateway {
             'qr-yape-plin-checkout',
             plugin_dir_url(dirname(__FILE__)) . 'assets/css/checkout.css',
             array(),
-            '1.0.0'
+            PAGO_QR_YAPE_PLIN_VERSION
         );
     }
 
@@ -236,9 +244,9 @@ class WC_Gateway_QR_Yape_Plin extends WC_Payment_Gateway {
                          alt="<?php esc_attr_e('Código QR para pago', 'pago-qr-yape-plin'); ?>"
                          class="qr-payment-image" />
                 </div>
-                <p class="qr-instruction">
-                    <?php _e('Escanea este código QR con tu app de Yape o Plin para realizar el pago.', 'pago-qr-yape-plin'); ?>
-                </p>
+                <?php if ($this->qr_note): ?>
+                    <p class="qr-instruction"><?php echo wp_kses_post(nl2br($this->qr_note)); ?></p>
+                <?php endif; ?>
             </div>
             <?php
         } else {

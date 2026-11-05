@@ -3,7 +3,7 @@ Contributors: tunombre
 Tags: woocommerce, payment, qr, yape, plin, peru
 Requires at least: 5.0
 Tested up to: 6.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -51,6 +51,10 @@ Puedes generar tu código QR desde la app de Yape o Plin en tu celular.
 Debes verificar manualmente los pagos recibidos y cambiar el estado del pedido a "Procesando" o "Completado".
 
 == Changelog ==
+
+= 1.1.0 =
+* El QR llena todo el recuadro (antes el tema lo reducía a 80px, como un logo de método de pago)
+* Nuevo campo "Texto bajo el QR" editable desde los ajustes
 
 = 1.0.0 =
 * Versión inicial del plugin
